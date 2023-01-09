@@ -10,15 +10,18 @@ class DummyNNsort(nn.Module):
         super().__init__()
         
         self.layer_1 = nn.Linear(in_features=size, out_features=64) 
-        self.layer_2 = nn.Linear(in_features=64, out_features=64) 
-        self.layer_3 = nn.Linear(in_features=64, out_features=size)
+        self.layer_2 = nn.Linear(in_features=64, out_features=64)
+        self.layer_3 = nn.Linear(in_features=64, out_features=258) 
+        self.layer_4 = nn.Linear(in_features=258, out_features=size)
         self.relu = nn.ReLU()
+        
          
     
     def forward(self, x):
         h = self.relu(self.layer_1(x))
         h = self.relu(self.layer_2(h))
         h = self.relu(self.layer_3(h))
+        h = self.layer_4(h)
         return h
 
 

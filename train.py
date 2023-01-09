@@ -23,7 +23,7 @@ def train(model, epochs, X_train, X_test, y_train, y_test, loss, optimizer, devi
             test_loss = loss(test_pred, y_test.type(torch.FloatTensor))
             
             
-            if epoch % 1000 == 0:
+            if epoch % 10 == 0:
                 epoch_count.append(epoch)
                 train_loss_values.append(loss_value.detach().numpy())
                 test_loss_values.append(test_loss.detach().numpy())
